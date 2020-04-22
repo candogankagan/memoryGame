@@ -76,7 +76,16 @@ document.addEventListener("DOMContentLoaded", () => {
     this.setAttribute("src", cardArray[cardId].img);
     cardChosen.push(cardArray[cardId].name);
     cardChosenId.push(cardId);
-    if (cardChosen.length === 2) {
+    console.log(cardChosen);
+    console.log(cardChosenId);
+    if (cardChosenId[0] === cardChosenId[1]) {
+      document
+        .querySelectorAll("img")
+        [cardChosenId[0]].setAttribute("src", "images/blank.png");
+      cardChosenId = [];
+      cardChosen = [];
+    }
+    if (cardChosenId.length === 2) {
       setTimeout(checkMatch, 500);
     }
   }
